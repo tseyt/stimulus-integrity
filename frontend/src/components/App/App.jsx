@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // Components
-// import { Login } from 'components';
+import { Login, Survey } from "components";
 // Services and redux action
 import { UserAction } from "actions";
 import { ApiService } from "services";
@@ -54,10 +54,14 @@ class App extends Component {
     // If the username is set in redux, display the Profile component
     // If the username is NOT set in redux, display the Login component
     return (
-      <div className="App">
+      <div className={ `App ${ loading ? " loading" : "" }` }>
         <header className="App-header">
           <p>Stimulus Integrity</p>
         </header>
+        <main>
+          {name && <Survey />}
+          {!name && <Login />}
+        </main>
       </div>
     );
   }

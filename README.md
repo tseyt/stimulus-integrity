@@ -1,6 +1,8 @@
 # stimulus_integrity
 Using Blockchain to enhance integrity within Stimulus Aid
 
+A demo modeled after [New York State Department of Labor's Benefits Claim Process](https://dol.ny.gov/unemployment/file-your-first-claim-benefits) during the CoVid-19 pandemic.
+
 # Usage:
 - Download the project and `cd` into `/frontend` folder. From there, run `npm start` to launch the frontend.
 

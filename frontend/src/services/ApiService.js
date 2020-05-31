@@ -3,7 +3,7 @@ import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
 
 // Main action call to blockchain
 async function takeAction(action, dataValue) {
-  const privateKey = localStorage.getItem("cardgame_key");
+  const privateKey = localStorage.getItem("stimulus_key");
   const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
   const signatureProvider = new JsSignatureProvider([privateKey]);
   const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
@@ -15,7 +15,7 @@ async function takeAction(action, dataValue) {
         account: process.env.REACT_APP_EOS_CONTRACT_NAME,
         name: action,
         authorization: [{
-          actor: localStorage.getItem("cardgame_account"),
+          actor: localStorage.getItem("stimulus_account"),
           permission: 'active',
         }],
         data: dataValue,
@@ -34,16 +34,16 @@ class ApiService {
 
   static getCurrentUser() {
     return new Promise((resolve, reject) => {
-      if (!localStorage.getItem("cardgame_account")) {
+      if (!localStorage.getItem("stimulus_account")) {
         return reject();
       }
-      takeAction("login", { username: localStorage.getItem("cardgame_account") })
+      takeAction("login", { username: localStorage.getItem("stimulus_account") })
         .then(() => {
-          resolve(localStorage.getItem("cardgame_account"));
+          resolve(localStorage.getItem("stimulus_account"));
         })
         .catch(err => {
-          localStorage.removeItem("cardgame_account");
-          localStorage.removeItem("cardgame_key");
+          localStorage.removeItem("stimulus_account");
+          localStorage.removeItem("stimulus_key");
           reject(err);
         });
     });
@@ -51,34 +51,26 @@ class ApiService {
 
   static login({ username, key }) {
     return new Promise((resolve, reject) => {
-      localStorage.setItem("cardgame_account", username);
-      localStorage.setItem("cardgame_key", key);
+      localStorage.setItem("stimulus_account", username);
+      localStorage.setItem("stimulus_key", key);
       takeAction("login", { username: username })
         .then(() => {
           resolve();
         })
         .catch(err => {
-          localStorage.removeItem("cardgame_account");
-          localStorage.removeItem("cardgame_key");
+          localStorage.removeItem("stimulus_account");
+          localStorage.removeItem("stimulus_key");
           reject(err);
         });
     });
   }
 
-  static startGame() {
-    return takeAction("startgame", { username: localStorage.getItem("cardgame_account") });
+  static submitSurvey() {
+    return takeAction("submitsurvey", { username: localStorage.getItem("stimulus_account") });
   }
 
-  static playCard(cardIdx) {
-    return takeAction("playcard", { username: localStorage.getItem("cardgame_account"), player_card_idx: cardIdx });
-  }
-
-  static nextRound() {
-    return takeAction("nextround", { username: localStorage.getItem("cardgame_account") });
-  }
-
-  static endGame() {
-    return takeAction("endgame", { username: localStorage.getItem("cardgame_account") });
+  static clearSurvey() {
+    return takeAction("clearsurvey", { username: localStorage.getItem("stimulus_account") });
   }
 
   static async getUserByName(username) {

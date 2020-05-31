@@ -2,12 +2,13 @@
 
 using namespace std;
 using namespace eosio;
+
 class [[eosio::contract]] stimulus : public eosio::contract {
 
   private:
     
     struct survey {
-      int8_t          age = 0;
+      int8_t          eligible = 0;
     };
 
     struct [[eosio::table]] user_info {
@@ -29,5 +30,11 @@ class [[eosio::contract]] stimulus : public eosio::contract {
 
     [[eosio::action]]
     void login(name username);
+
+    [[eosio::action]]
+    void clearsurvey(name username);
+    
+    [[eosio::action]]
+    void submitsurvey(name username);
 
 };

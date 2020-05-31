@@ -49,7 +49,7 @@ class Button extends Component {
     return (
       <button
         className={`Button${ className ? ' ' + className : '' }${ loading ? ' loading' : '' }`}
-        onClick={ this.handleClick }
+        onClick={this.handleClick}
         { ...{ type, style } }
       >{ children }</button>
     );

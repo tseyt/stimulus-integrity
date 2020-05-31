@@ -1,8 +1,9 @@
 // React core
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 // Components
-import { Login, Survey } from "components";
+import { Signup, Login, Survey } from "components";
 // Services and redux action
 import { UserAction } from "actions";
 import { ApiService } from "services";
@@ -56,11 +57,20 @@ class App extends Component {
     return (
       <div className={ `App ${ loading ? " loading" : "" }` }>
         <header className="App-header">
-          <p>Stimulus Integrity</p>
+          <div className="left">
+            <img className="App-logo" src={require('./images/logo.png')} alt="logo" />
+          </div>
+          
+          <div className="right">
+            <p className="App-desc">Stimulus Integrity Demo</p>
+          </div>
         </header>
         <main>
-          {name && <Survey />}
-          {!name && <Login />}
+          <Switch>
+            <Route exact path="/" component={name ? Survey : Login} />
+            <Route path="/signup" component={Signup} />
+          </Switch>
+          
         </main>
       </div>
     );

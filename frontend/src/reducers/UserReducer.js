@@ -14,7 +14,7 @@ export default function (state = initialState, action) {
         // The places that will change the name is login
         // In that cases, the `win_count`, `lost_count`, `game` will be reset
         name: typeof action.name === "undefined" ? state.name : action.name,
-        amoount_owed: action.amount_owed || initialState.amount_owed,
+        amount_owed: action.amount_owed || initialState.amount_owed,
         survey: action.survey || initialState.survey,
       });
     }

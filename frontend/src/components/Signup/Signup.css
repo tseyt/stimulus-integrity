@@ -1,4 +1,4 @@
-.Login {
+.Signup {
   position: relative;
   margin: 0 auto;
   width: 1366px;
@@ -13,11 +13,11 @@
   flex-direction: column;
   transform-origin: top left;
   transition: all 500ms ease-in-out !important; }
-  .Login > * {
+  .Signup > * {
     margin: 0 auto;
     padding: 0 72px;
     width: 615px; }
-  .Login .title {
+  .Signup .title {
     position: absolute;
     top: 60px;
     width: 392px;
@@ -25,17 +25,17 @@
     background: url("./images/logo.png");
     background-size: 100%;
     color: transparent; }
-  .Login .description {
+  .Signup .description {
     margin-top: 50px;
     margin-bottom: 25px;
     line-height: 1.5em; }
-  .Login .field {
+  .Signup .field {
     margin-bottom: 15px; }
-    .Login .field label {
+    .Signup .field label {
       color: #ffffff;
       text-transform: uppercase;
       text-shadow: 2px 2px 2px black; }
-    .Login .field input {
+    .Signup .field input {
       margin: 5px 0;
       padding: 4px 20px 0;
       width: 471.5px;
@@ -45,7 +45,7 @@
       color: #312a25;
       letter-spacing: 3px;
       /* https://stackoverflow.com/a/37432260 */ }
-      .Login .field input::placeholder {
+      .Signup .field input::placeholder {
         color: #666;
         letter-spacing: 2px; }
 
@@ -53,20 +53,20 @@
   to {
     background: url("./images/login_form.png");
     background-size: 471.5px; } }
-      .Login .field input:-webkit-autofill {
+      .Signup .field input:-webkit-autofill {
         -webkit-animation-name: autofill;
         -webkit-animation-fill-mode: both; }
-  .Login .form-error {
+  .Signup .form-error {
     height: 1em;
     font-size: 14.5px;
     white-space: nowrap;
     overflow: hidden; }
-    .Login .form-error .error {
+    .Signup .form-error .error {
       width: 100%;
       color: #ff5400;
       text-overflow: ellipsis;
       overflow: hidden;
       display: inline-block; }
-  .Login .bottom {
+  .Signup .bottom {
     margin-top: 5px;
     text-align: center; }

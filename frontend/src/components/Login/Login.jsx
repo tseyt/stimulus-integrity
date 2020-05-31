@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {  Link } from 'react-router-dom';
 // Components
 import { Button } from 'components';
 // Services and redux action
@@ -81,7 +82,10 @@ class Login extends Component {
     return (
       <div className="Login">
         <div className="title">EOSIO Department of Labor</div>
-        <div className="description">Please use the Account Name and Private Key generated in the sign-up page to log into your account.</div>
+        <div className="description">
+          Please use the Account Name and Private Key generated in the sign-up page to log into your account.
+          Don't have an account yet? <Link to="/signup">Sign up here</Link>.
+        </div>
         <form name="form" onSubmit={ this.handleSubmit }>
           <div className="field">
             <label>Account name</label>

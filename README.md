@@ -1,20 +1,12 @@
 # stimulus_integrity
-Bringing Integrity within Stimulus Aid
+Using Blockchain to enhance integrity within Stimulus Aid
 
-# EOSIO Testnet
-This app is running on the EOSIO Testnet. For the demo you can just `cd` into the frontend folder,
-and run `npm start` to see the demo.
+A demo modeled after [New York State Department of Labor's Benefits Claim Process](https://dol.ny.gov/unemployment/file-your-first-claim-benefits) during the CoVid-19 pandemic.
 
+# Usage:
+- Download the project and `cd` into `/frontend` folder. From there, run `npm start` to launch the frontend.
 
-## Compile in `/contracts/stimulus` folder with
+*Note: this project is running on [Block.One's EOSIO Testnet](https://testnet.eos.io/)*
+
+## Compile smart contracts with:
 eosio-cpp -abigen "contracts/stimulus/stimulus.cpp" -o "contracts/stimulus/stimulus.wasm" --contract "stimulus"
-
-# OR
-
-# Building dApp
-## $1 smart contract name
-## $2 account holder name of the smart contract
-## $3 wallet for unlock the account
-## $4 password for unlocking the wallet
-For example:
-`quick_start.sh stimulus stimulusacc stimuluswal $(cat stimulus_wallet_password.txt)`

@@ -1,5 +1,5 @@
 # stimulus_integrity
-Using Blockchain to enhance integrity within Stimulus Aid
+Using blockchain to enhance integrity within stimulus aid
 
 A demo modeled after [New York State Department of Labor's Benefits Claim Process](https://dol.ny.gov/unemployment/file-your-first-claim-benefits) during the CoVid-19 pandemic.
 
